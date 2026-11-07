@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#365943">
-<title>時代華語一｜全冊互動練習</title>
+<title>時代華語一｜全冊互動練習(中英)</title>
 <style>
 :root{--navy:#294b3a;--blue:#477a62;--teal:#8da879;--bg:#faf4ea;--ink:#343b32;--muted:#77776c;--line:#e8ddcb;--white:#fffdf8;--gold:#d69a55}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#f8f0e2,#fffaf1 48%,#edf2e7);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);min-height:100vh}
@@ -223,7 +223,7 @@ function finish(isComplete=true){
  if(missed.length) bindShareButtons();
 }
 function buildReviewText(){
- const lines=['《時代華語一》全冊互動練習(中英)｜本回合錯題複習',''];
+ const lines=['《時代華語一》全冊互動練習｜本回合錯題複習',''];
  missed.forEach((q,i)=>{lines.push(`${i+1}. ${q.question}`);lines.push(`正確答案：${q.answer}`);lines.push(q.why);lines.push('');});
  lines.push('建議：重新閱讀題目與解析，再進行下一回合練習。');
  return lines.join('\n');
