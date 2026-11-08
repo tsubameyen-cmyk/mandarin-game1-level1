@@ -27,7 +27,7 @@ button,select{font:inherit}button{border:0;border-radius:13px;padding:14px 16px;
 .hidden{display:none!important}.result{text-align:center}.score{font-size:46px;font-weight:950;color:#477a62;margin:8px}.reviewlist{display:grid;gap:8px;margin-top:14px;text-align:left}.reviewitem{background:#faf6ee;border-radius:12px;padding:11px;font-size:13px;line-height:1.5}
 .sharegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 13px}
 .sharebtn{background:#f0eadf;color:#4f594b;border:1px solid #e4d8c6;padding:12px 9px;font-size:13px}
-.sharebtn:first-child{grid-column:1/-1;background:#b86b4d;color:white;border-color:#a95d42}
+.sharebtn{grid-column:1/-1}.sharebtn:first-child{background:#b86b4d;color:white;border-color:#a95d42}
 .foot{text-align:center;color:#858276;font-size:11px;padding:18px 8px}
 @media(min-width:600px){.wrap{padding-top:28px}.hero{padding:28px}.hero h1{font-size:30px}.question{font-size:28px}}
 </style>
@@ -243,10 +243,10 @@ function finish(isComplete=true){
  $('resultmsg').textContent=`${isComplete?'已完成本回合。':'本回合提前結束。'}本回合共 ${round.length} 題，已作答 ${completed} 題。`+(pct>=90?'太好了！全冊掌握得很不錯。':pct>=70?'表現不錯，再練習一次會更熟悉。':'把錯題再看一次，慢慢累積熟練度。');
  $('bar').style.width=`${round.length?completed/round.length*100:0}%`;
  $('review').innerHTML=missed.length?`<h2 style="margin:4px 0">本回合需要複習的題目（${missed.length}）</h2>
- <div class="sub">可以使用 Gmail 寄送 / Send with Gmail（限使用電腦時 / Computer only），或複製錯題文字 / Copy Incorrect Answers（手機請用這個 / on phones, use this）。</div>
+ <div class="sub">可以複製錯題文字 / Copy Incorrect Answers，或使用 Gmail 寄送 / Send with Gmail。</div>
  <div class="sharegrid">
-  <button class="sharebtn" id="shareEmail">使用 Gmail 寄送 / Send with Gmail<br><span style="font-size:12px;font-weight:700">（限使用電腦時 / Computer only）</span></button>
   <button class="sharebtn" id="copyReview">複製錯題文字 / Copy Incorrect Answers</button>
+  <button class="sharebtn" id="shareEmail">使用 Gmail 寄送 / Send with Gmail</button>
  </div>`+missed.map((q,i)=>`<div class="reviewitem"><b>${i+1}. ${esc(q.question)}</b><br>答案：${esc(q.answer)}<br><span style="color:#77776c">${esc(q.why)}</span></div>`).join(''):'<div class="feedback good">本回合沒有答錯，做得很好！</div>';
  if(missed.length) bindShareButtons();
 }
