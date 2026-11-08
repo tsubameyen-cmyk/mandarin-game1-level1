@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#365943">
-<title>時代華語一｜全冊互動練習(中英)</title>
+<title>時代華語一｜全冊互動練習</title>
 <style>
 :root{--navy:#294b3a;--blue:#477a62;--teal:#8da879;--bg:#faf4ea;--ink:#343b32;--muted:#77776c;--line:#e8ddcb;--white:#fffdf8;--gold:#d69a55}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#f8f0e2,#fffaf1 48%,#edf2e7);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);min-height:100vh}
@@ -243,9 +243,9 @@ function finish(isComplete=true){
  $('resultmsg').textContent=`${isComplete?'已完成本回合。':'本回合提前結束。'}本回合共 ${round.length} 題，已作答 ${completed} 題。`+(pct>=90?'太好了！全冊掌握得很不錯。':pct>=70?'表現不錯，再練習一次會更熟悉。':'把錯題再看一次，慢慢累積熟練度。');
  $('bar').style.width=`${round.length?completed/round.length*100:0}%`;
  $('review').innerHTML=missed.length?`<h2 style="margin:4px 0">本回合需要複習的題目（${missed.length}）</h2>
- <div class="sub">可以使用 Gmail 寄送 / Send with Gmail，或複製錯題文字 / Copy Incorrect Answers。</div>
+ <div class="sub">可以使用 Gmail 寄送 / Send with Gmail（限使用電腦時 / Computer only），或複製錯題文字 / Copy Incorrect Answers（手機請用這個 / on phones, use this）。</div>
  <div class="sharegrid">
-  <button class="sharebtn" id="shareEmail">使用 Gmail 寄送 / Send with Gmail</button>
+  <button class="sharebtn" id="shareEmail">使用 Gmail 寄送 / Send with Gmail<br><span style="font-size:12px;font-weight:700">（限使用電腦時 / Computer only）</span></button>
   <button class="sharebtn" id="copyReview">複製錯題文字 / Copy Incorrect Answers</button>
  </div>`+missed.map((q,i)=>`<div class="reviewitem"><b>${i+1}. ${esc(q.question)}</b><br>答案：${esc(q.answer)}<br><span style="color:#77776c">${esc(q.why)}</span></div>`).join(''):'<div class="feedback good">本回合沒有答錯，做得很好！</div>';
  if(missed.length) bindShareButtons();
